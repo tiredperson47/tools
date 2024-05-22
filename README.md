@@ -1,4 +1,28 @@
+## Tools included:
+
+SecLists
+Gobuster
+Impacket
+Kerbrute
+CrackMapExec (I'm pretty sure this is already installed on Kali, but I added it anyways)
+Linux-Binary
+  -> Chisel (x32 and x64)
+  -> LinEnum
+  -> LinPEAS
+Windows-Binary
+  -> Mimikatz (x32 and x64)
+  -> NetCat (x32 and 64)
+  -> Rubeus
+  -> WinPEAS (x64)
+  -> Chisel (x32 and x64)
+ZeroLogon
+  -> PoC tester
+  -> Exploit script
+  -> Password Restore
+
 ## Before Running the Script:
+
+These tools are for AMD64 based architecture Kali Linux. If you use a different distribution, architecture, or use x86 for some reason, then some of these tools may not install/work correctly. Some github tools offer versions for different linux distributions and architecture, so double checking the code to make sure you're machine is compatible would be best. 
 
 This script uses sudo to download all of the tools. Be sure to have sudo permissions before attempting to run this script.
 You may or may not need to add executable permissions to the scripts as well. 
