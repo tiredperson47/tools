@@ -2,13 +2,14 @@
 
 
 sudo apt install -y gobuster
-#gets adn installs requirements for impacket
+sudo git clone https://github.com/byt3bl33d3r/CrackMapExec.git
+#gets and installs requirements for impacket
 sudo git clone https://github.com/fortra/impacket.git
 	cd impacket
 	sudo pip3 install -r requirements.txt
 	sudo python3 pip install setup.py
 	sudo pip install impacket
-  cd ..
+	cd ..
 wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_amd64
 	mv kerbrute_linux_amd64 kerbrute
 	chmod +x kerbrute
