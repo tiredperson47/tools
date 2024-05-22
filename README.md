@@ -1,24 +1,24 @@
 ## Tools included:
 
-SecLists
-Gobuster
-Impacket
-Kerbrute
-CrackMapExec (I'm pretty sure this is already installed on Kali, but I added it anyways)
-Linux-Binary
-  -> Chisel (x32 and x64)
-  -> LinEnum
-  -> LinPEAS
-Windows-Binary
-  -> Mimikatz (x32 and x64)
-  -> NetCat (x32 and 64)
-  -> Rubeus
-  -> WinPEAS (x64)
-  -> Chisel (x32 and x64)
-ZeroLogon
-  -> PoC tester
-  -> Exploit script
-  -> Password Restore
+- SecLists
+- Gobuster
+- Impacket
+- Kerbrute
+- CrackMapExec (I'm pretty sure this is already installed on Kali, but I added it anyways)
+- Linux-Binary
+  - Chisel (x32 and x64)
+  - LinEnum
+  - LinPEAS
+- Windows-Binary
+  - Mimikatz (x32 and x64)
+  - NetCat (x32 and 64)
+  - Rubeus
+  - WinPEAS (x64)
+  - Chisel (x32 and x64)
+- ZeroLogon
+  - PoC tester
+  - Exploit script
+  - Password Restore
 
 ## Before Running the Script:
 
