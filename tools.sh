@@ -49,5 +49,5 @@ sudo mkdir zerologon
 sudo apt-get install -y bloodhound neo4j
 
 cd ..
-sudo chown -R $username:$username ~/Kali-Setup
+sudo chown -R $username:$username ~/github
 
