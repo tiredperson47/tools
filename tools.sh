@@ -1,7 +1,8 @@
 # A script to quickly set up a kali linux machine, or any other linux distribution that uses apt. 
-echo "what is your username? (this is for file ownership stuff)"
-read username
 
+username="$(whoami)"
+
+sudo mv ~/Kali-Setup ~/github
 sudo apt install -y gobuster
 sudo git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 #gets and installs requirements for impacket
@@ -49,4 +50,4 @@ sudo apt-get install -y bloodhound neo4j
 
 cd ..
 sudo chown -R $username:$username ~/Kali-Setup
-sudo mv ~/Kali-Setup ~/github
+
