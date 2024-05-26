@@ -56,7 +56,20 @@ sudo mkdir zerologon
 	echo "for zerologon tester and exploit, it's: python3 (script) (NetBIOS name) (ip)" > Syntax-Notes
 	echo "for password restoring it's: python3 restorepassword.py (domain-name)/(NetBIOS name)@(NetBIOS name) -target-ip (ip) -hexpass (hex hash)" >> Syntax-Notes
 	cd ..
+ sudo mkdir rev-eng
+ 	cd rev-eng
+  	sudo wget https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v7.2-rc/Linux.x64.Release.zip
+   	unzip Linux.x64.Release.zip
+    unzip ILSpy-linux-x64-Release.zip
+    cd ..
 sudo apt-get install -y bloodhound neo4j
+
+read -p "Do you want to clone the repository? (y/n): " response
+if [ "$response" = "y" ]; then
+    sudo git clone https://github.com/danielmiessler/SecLists.git
+else
+    echo "No action taken. Exiting."
+fi
 
 cd ..
 sudo chown -R $username:$username ~/github
