@@ -2,7 +2,8 @@
 
 username="$(whoami)"
 
-sudo mv ~/Kali-Setup ~/github
+sudo mv ~/kali-tools ~/github
+sudo apt install -y ldap-utils
 sudo apt install -y gobuster
 sudo git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 #gets and installs requirements for impacket
@@ -39,12 +40,12 @@ sudo mkdir windows-binary
    	sudo mkdir Sharphound
    	cd Sharphound
  	sudo wget https://github.com/BloodHoundAD/SharpHound/releases/download/v2.4.1/SharpHound-v2.4.1.zip
-  	unzip SharpHound-v2.4.1.zip
+  	sudo unzip SharpHound-v2.4.1.zip
    	cd ..
    	sudo mkdir Accesschk
     	cd Accesschk
     	sudo wget https://download.sysinternals.com/files/AccessChk.zip
-    	unzip AccessChk.zip
+    	sudo unzip AccessChk.zip
 	cd ..
  	cd ..
 sudo mkdir zerologon
@@ -59,8 +60,8 @@ sudo mkdir zerologon
  sudo mkdir rev-eng
  	cd rev-eng
   	sudo wget https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v7.2-rc/Linux.x64.Release.zip
-   	unzip Linux.x64.Release.zip
-    unzip ILSpy-linux-x64-Release.zip
+   	sudo unzip Linux.x64.Release.zip
+    	sudo unzip ILSpy-linux-x64-Release.zip
     cd ..
 sudo apt-get install -y bloodhound neo4j
 
