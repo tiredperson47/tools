@@ -15,6 +15,8 @@
   - Rubeus
   - WinPEAS (x64)
   - Chisel (x32 and x64)
+  - Accesschk
+  - SharpHound
 - ZeroLogon
   - PoC tester
   - Exploit script
