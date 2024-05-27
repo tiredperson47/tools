@@ -37,11 +37,7 @@ sudo mkdir windows-binary
 	sudo git clone https://github.com/int0x33/nc.exe.git
 	sudo git clone https://github.com/ParrotSec/mimikatz.git
 	sudo wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/blob/master/Rubeus.exe
-   	sudo mkdir Sharphound
-   	cd Sharphound
- 	sudo wget https://github.com/BloodHoundAD/SharpHound/releases/download/v2.4.1/SharpHound-v2.4.1.zip
-  	sudo unzip SharpHound-v2.4.1.zip
-   	cd ..
+ 	sudo wget https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.exe
    	sudo mkdir Accesschk
     	cd Accesschk
     	sudo wget https://download.sysinternals.com/files/AccessChk.zip
