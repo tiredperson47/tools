@@ -61,7 +61,7 @@ sudo apt-get install -y bloodhound neo4j
 
 read -p "Do you want to clone the repository? (y/n): " response
 if [ "$response" = "y" ]; then
-    sudo git clone https://github.com/danielmiessler/SecLists.git
+    sudo wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
 else
     echo "No action taken. Exiting."
 fi
@@ -69,4 +69,10 @@ fi
 cd ..
 # Recursivly change permissions to be correct
 sudo chown -R $username:$username ~/github
+
+echo ""
+echo ""
+echo "You have to unzip Seclists yourself. Shouldn't take long. Maybe 45 seconds?"
+echo ""
+echo "Anyways, good luck and happy hacking!"
 
