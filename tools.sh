@@ -36,13 +36,11 @@ sudo mkdir windows-binary
 	sudo wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 	sudo git clone https://github.com/int0x33/nc.exe.git
 	sudo git clone https://github.com/ParrotSec/mimikatz.git
-	sudo wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/blob/master/Rubeus.exe
- 	sudo wget https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.exe
-   	sudo mkdir Accesschk
-    	cd Accesschk
-    	sudo wget https://download.sysinternals.com/files/AccessChk.zip
-    	sudo unzip AccessChk.zip
-	cd ..
+	sudo wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Rubeus.exe
+	sudo wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Certify.exe
+ 	sudo wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
+	sudo git clone https://github.com/Kevin-Robertson/Powermad.git
+	sudo wget https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
  	cd ..
 sudo mkdir zerologon
 	cd zerologon
@@ -57,7 +55,7 @@ sudo mkdir zerologon
  	cd rev-eng
   	sudo wget https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v7.2-rc/Linux.x64.Release.zip
    	sudo unzip Linux.x64.Release.zip
-    	sudo unzip ILSpy-linux-x64-Release.zip
+    sudo unzip ILSpy-linux-x64-Release.zip
     cd ..
 sudo apt-get install -y bloodhound neo4j
 
@@ -69,5 +67,6 @@ else
 fi
 
 cd ..
+# Recursivly change permissions to be correct
 sudo chown -R $username:$username ~/github
 
