@@ -1,5 +1,6 @@
 # A script to quickly set up a kali linux machine, or any other linux distribution that uses apt. 
 
+# Sets username variable to the user's username with whoami
 username="$(whoami)"
 
 sudo mv ~/kali-tools ~/github
@@ -8,6 +9,7 @@ sudo apt install -y gobuster
 sudo git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 #gets and installs requirements for impacket
 sudo git clone https://github.com/fortra/impacket.git
+sudo git clone https://github.com/BlackArch/webshells.git
 sudo wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_amd64
 	sudo mv kerbrute_linux_amd64 kerbrute
 	sudo chmod +x kerbrute
@@ -52,11 +54,15 @@ sudo mkdir zerologon
    	sudo unzip Linux.x64.Release.zip
     sudo unzip ILSpy-linux-x64-Release.zip
     cd ..
-sudo apt-get install -y bloodhound neo4j
 
-read -p "Do you want to clone the repository? (y/n): " response
+sudo apt install -y bloodhound neo4j
+
+read -p "Do you want to install SecLists? (y/n): " response
 if [ "$response" = "y" ]; then
     sudo wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
+	echo ""
+	echo ""
+	echo "You have to unzip Seclists yourself. Shouldn't take long. Maybe 45 seconds?"
 else
     echo "No action taken. Exiting."
 fi
@@ -67,7 +73,5 @@ sudo chown -R $username:$username ~/github
 
 echo ""
 echo ""
-echo "You have to unzip Seclists yourself. Shouldn't take long. Maybe 45 seconds?"
-echo ""
-echo "Anyways, good luck and happy hacking!"
+echo "Good luck and happy hacking!"
 

@@ -2,9 +2,10 @@
 
 - SecLists
 - Gobuster
-- Impacket
+- Impacket (Set up requirements yourself)
 - Kerbrute
 - CrackMapExec (I'm pretty sure this is already installed on Kali, but I added it anyways)
+- WebShells
 - Linux-Binary
   - Chisel (x32 and x64)
   - LinEnum
