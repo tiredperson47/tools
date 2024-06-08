@@ -29,10 +29,7 @@
 
 ## Before Running the Script:
 
-Do NOT change the folder name/path before running the script. The script does it for you and will change the directory name to "github". If you do change the directory name/path, then run this command to fix ownership issues:
-```
-sudo chown -R (username):(username) (new directory path/name)
-```
+I've set it up so that the repositiory's directory is supposed to be in the user's home directory. This may or may not cause issues if the repository is placed outside of that /home/(user)/ directory.
 
 These tools are for AMD64 based architecture Kali Linux. If you use a different distribution, architecture, or use x86 for some reason, then some of these tools may not install/work correctly. Some github tools offer versions for different linux distributions and architecture, so double checking the code to make sure you're machine is compatible would be best. 
 
