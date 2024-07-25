@@ -26,6 +26,7 @@
   - Password Restore
 - Reverse Engineering
   - ILSpy (.NET rev eng tool)
+- Msfpayload (A dumb script I made cuz I'm lazy)
 
 ## Before Running the Script:
 
