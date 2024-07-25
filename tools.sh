@@ -66,6 +66,9 @@ unzip ILSpy-linux-x64-Release.zip
 # Install bloodhound and neo4j
 sudo apt install -y bloodhound neo4j
 
+#my own repositoty
+git clone https://github.com/tiredperson47/msfpayload.git
+
 # Prompt for SecLists installation
 cd ~/github
 read -p "Do you want to install SecLists? (y/n): " response
@@ -83,4 +86,4 @@ sudo chown -R $username:$username ~/github
 
 echo ""
 echo ""
-echo "Good luck and happy hacking!"
+echo '============== Good luck and happy hacking! =============='
