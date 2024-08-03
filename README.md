@@ -10,6 +10,7 @@
   - Chisel (x32 and x64)
   - LinEnum
   - LinPEAS
+  - PsPy
 - Windows-Binary
   - Mimikatz (x32 and x64)
   - NetCat (x32 and 64)
