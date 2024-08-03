@@ -28,6 +28,7 @@ mv chisel_1.9.1_linux_386 lin-chisel32
 mv chisel_1.9.1_linux_amd64 lin-chisel64
 git clone https://github.com/rebootuser/LinEnum.git
 wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
 
 # Create windows-binary directory and download files
 mkdir ~/github/windows-binary
