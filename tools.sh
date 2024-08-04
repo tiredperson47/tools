@@ -19,8 +19,8 @@ wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_
 chmod +x kerbrute
 
 # Create linux-binary directory and download files
-mkdir ~/github/linux-binary
-cd ~/github/linux-binary
+mkdir linux-binary
+cd linux-binary
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_linux_386.gz
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_linux_amd64.gz
 gunzip *.gz
@@ -29,10 +29,11 @@ mv chisel_1.9.1_linux_amd64 lin-chisel64
 git clone https://github.com/rebootuser/LinEnum.git
 wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
+cd ..
 
 # Create windows-binary directory and download files
-mkdir ~/github/windows-binary
-cd ~/github/windows-binary
+mkdir windows-binary
+cd windows-binary
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_386.gz
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_amd64.gz
 gunzip *.gz
@@ -46,23 +47,26 @@ wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Cert
 wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
 git clone https://github.com/Kevin-Robertson/Powermad.git
 wget https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
+cd ..
 
 # Create zerologon directory and download files
-mkdir ~/github/zerologon
-cd ~/github/zerologon
+mkdir zerologon
+cd zerologon
 wget https://github.com/SecuraBV/CVE-2020-1472/raw/master/zerologon_tester.py
 wget https://github.com/dirkjanm/CVE-2020-1472/raw/master/cve-2020-1472-exploit.py
 wget https://github.com/dirkjanm/CVE-2020-1472/raw/master/restorepassword.py
 touch Syntax-Notes
 echo "for zerologon tester and exploit, it's: python3 (script) (NetBIOS name) (ip)" > Syntax-Notes
 echo "for password restoring it's: python3 restorepassword.py (domain-name)/(NetBIOS name)@(NetBIOS name) -target-ip (ip) -hexpass (hex hash)" >> Syntax-Notes
+cd ..
 
 # Create rev-eng directory and download files
-mkdir ~/github/rev-eng
-cd ~/github/rev-eng
+mkdir rev-eng
+cd rev-eng
 wget https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v7.2-rc/Linux.x64.Release.zip
 unzip Linux.x64.Release.zip
 unzip ILSpy-linux-x64-Release.zip
+cd ..
 
 # Install bloodhound and neo4j
 sudo apt install -y bloodhound neo4j
