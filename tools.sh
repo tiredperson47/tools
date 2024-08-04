@@ -14,6 +14,9 @@ git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 git clone https://github.com/fortra/impacket.git
 git clone https://github.com/BlackArch/webshells.git
 
+#compile ld-preload privesc
+gcc -fPIC -shared -nostartfiles -o ~/github/ld_preload.so ~/github/ld_preload.c
+
 # Download and setup kerbrute
 wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_amd64 -O kerbrute
 chmod +x kerbrute
@@ -86,8 +89,29 @@ else
     echo "No action taken. Exiting."
 fi
 
+#prompt for lxc privesc set up
+cd ~/github
+read -p "Do you want to set up lxc privesc? It will update your packages. (y/n): " response
+if [ "$response" = "y" ]; then
+    sudo apt update
+    sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools
+    git clone https://github.com/lxc/distrobuilder
+    cd distrobuilder
+    make
+    mkdir -p ~/github/lxc-privesc
+    cd ~/github/lxc-privesc
+    wget https://raw.githubusercontent.com/lxc/lxc-ci/master/images/alpine.yaml
+    sudo $HOME/go/bin/distrobuilder build-incus alpine.yaml --type=split -o image.release=3.18
+    mv ~/github/lxc-steps.txt ~/github/lxc-privesc
+    cd ~/github
+else
+    echo "No action taken. Exiting."
+fi
+
+
 # Recursively change permissions to be correct
 sudo chown -R $username:$username ~/github
+
 
 echo ""
 echo ""
