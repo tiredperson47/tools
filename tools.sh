@@ -13,6 +13,7 @@ cd ~/github
 git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 git clone https://github.com/fortra/impacket.git
 git clone https://github.com/BlackArch/webshells.git
+pip install bloodhound
 
 #compile ld-preload privesc
 gcc -fPIC -shared -nostartfiles -o ~/github/ld_preload.so ~/github/ld_preload.c
