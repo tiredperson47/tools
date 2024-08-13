@@ -8,15 +8,19 @@ username="$(whoami)"
 # Install required packages
 sudo apt install -y ldap-utils gobuster
 
+# unzip rockyou.txt + export to $rock variable
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+export rock=/usr/share/wordlists/rockyou.txt
+
 # Clone GitHub repositories
-cd ~/github
+cd ~/tools
 git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 git clone https://github.com/fortra/impacket.git
 git clone https://github.com/BlackArch/webshells.git
 pip install bloodhound
 
 #compile ld-preload privesc
-gcc -fPIC -shared -nostartfiles -o ~/github/ld_preload.so ~/github/ld_preload.c
+gcc -fPIC -shared -nostartfiles -o ~/tools/ld_preload.so ~/tools/ld_preload.c
 
 # Download and setup kerbrute
 wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_amd64 -O kerbrute
@@ -79,7 +83,7 @@ sudo apt install -y bloodhound neo4j
 git clone https://github.com/tiredperson47/msfpayload.git
 
 # Prompt for SecLists installation
-cd ~/github
+cd ~/tools
 read -p "Do you want to install SecLists? (y/n): " response
 if [ "$response" = "y" ]; then
     wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
@@ -91,7 +95,7 @@ else
 fi
 
 #prompt for lxc privesc set up
-cd ~/github
+cd ~/tools
 read -p "Do you want to set up lxc privesc? It will update your packages. (y/n): " response
 if [ "$response" = "y" ]; then
     sudo apt update
@@ -99,19 +103,19 @@ if [ "$response" = "y" ]; then
     git clone https://github.com/lxc/distrobuilder
     cd distrobuilder
     make
-    mkdir -p ~/github/lxc-privesc
-    cd ~/github/lxc-privesc
+    mkdir -p ~/tools/lxc-privesc
+    cd ~/tools/lxc-privesc
     wget https://raw.githubusercontent.com/lxc/lxc-ci/master/images/alpine.yaml
     sudo $HOME/go/bin/distrobuilder build-incus alpine.yaml --type=split -o image.release=3.18
-    mv ~/github/lxc-steps.txt ~/github/lxc-privesc
-    cd ~/github
+    mv ~/tools/lxc-steps.txt ~/tools/lxc-privesc
+    cd ~/tools
 else
     echo "No action taken. Exiting."
 fi
 
 
 # Recursively change permissions to be correct
-sudo chown -R $username:$username ~/github
+sudo chown -R $username:$username ~/tools
 
 
 echo ""
