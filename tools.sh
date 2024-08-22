@@ -86,18 +86,17 @@ sudo apt install -y bloodhound neo4j
 #my own repositoty
 git clone https://github.com/tiredperson47/msfpayload.git
 
-# Prompt for SecLists installation
+# installs seclists, unzips it, and changes directory name to SecLists.
 cd ~/tools
 if [[ "$response1" = "y" || "$response1" = "Y" ]]; then
     wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
-    echo ""
-    echo ""
-    echo "You have to unzip SecLists yourself. Shouldn't take long. Maybe 45 seconds?"
+    unzip master.zip
+    mv SecLists-master SecLists
 else
     echo "No action taken. Exiting."
 fi
 
-#prompt for lxc privesc set up
+# installs lxc privesc
 cd ~/tools
 if [[ "$response2" = "y" || "$response2" = "Y" ]]; then
     sudo apt update
