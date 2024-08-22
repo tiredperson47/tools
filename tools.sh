@@ -85,7 +85,7 @@ git clone https://github.com/tiredperson47/msfpayload.git
 # Prompt for SecLists installation
 cd ~/tools
 read -p "Do you want to install SecLists? (y/n): " response
-if [ "$response" = "y" ]; then
+if [[ "$response" = "y" || "$response" = "Y" ]]; then
     wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
     echo ""
     echo ""
@@ -97,7 +97,7 @@ fi
 #prompt for lxc privesc set up
 cd ~/tools
 read -p "Do you want to set up lxc privesc? It will update your packages. (y/n): " response
-if [ "$response" = "y" ]; then
+if [[ "$response" = "y" || "$response" = "Y" ]]; then
     sudo apt update
     sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools
     git clone https://github.com/lxc/distrobuilder
