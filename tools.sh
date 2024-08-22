@@ -5,6 +5,10 @@
 # Sets username variable to the user's username with whoami
 username="$(whoami)"
 
+# Ask user if they want to install SecLists and/or lxd privesc
+read -p "Do you want to install SecLists? (y/n): " response1
+read -p "Do you want to set up lxc privesc? It will update your packages [sudo apt update]. (y/n): " response2
+
 # Install required packages
 sudo apt install -y ldap-utils gobuster
 
@@ -84,8 +88,7 @@ git clone https://github.com/tiredperson47/msfpayload.git
 
 # Prompt for SecLists installation
 cd ~/tools
-read -p "Do you want to install SecLists? (y/n): " response
-if [[ "$response" = "y" || "$response" = "Y" ]]; then
+if [[ "$response1" = "y" || "$response1" = "Y" ]]; then
     wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
     echo ""
     echo ""
@@ -96,8 +99,7 @@ fi
 
 #prompt for lxc privesc set up
 cd ~/tools
-read -p "Do you want to set up lxc privesc? It will update your packages. (y/n): " response
-if [[ "$response" = "y" || "$response" = "Y" ]]; then
+if [[ "$response2" = "y" || "$response2" = "Y" ]]; then
     sudo apt update
     sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools
     git clone https://github.com/lxc/distrobuilder
