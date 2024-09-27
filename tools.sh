@@ -8,13 +8,16 @@ username="$(whoami)"
 # Ask user if they want to install SecLists and/or lxd privesc
 read -p "Do you want to install SecLists? (y/n): " response1
 read -p "Do you want to set up lxc privesc? It will update your packages [sudo apt update]. (y/n): " response2
+sudo apt update
+# Install required packages and remmina (RDP but kinda better than freexrdp)
+sudo apt install -y ldap-utils gobuster remmina
 
-# Install required packages
-sudo apt install -y ldap-utils gobuster
+# Install google chrome to be able to use chrome debugger. (rare to use but still cool to have)
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 # unzip rockyou.txt + export to $rock variable
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
-export rock=/usr/share/wordlists/rockyou.txt
 
 # Clone GitHub repositories
 cd ~/tools
@@ -36,8 +39,8 @@ cd linux-binary
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_linux_386.gz
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_linux_amd64.gz
 gunzip *.gz
-mv chisel_1.9.1_linux_386 lin-chisel32
-mv chisel_1.9.1_linux_amd64 lin-chisel64
+mv chisel_1.9.1_linux_386 chisel32
+mv chisel_1.9.1_linux_amd64 chisel64
 git clone https://github.com/rebootuser/LinEnum.git
 wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
@@ -49,8 +52,8 @@ cd windows-binary
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_386.gz
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_amd64.gz
 gunzip *.gz
-mv chisel_1.9.1_windows_386 win-chisel32
-mv chisel_1.9.1_windows_amd64 win-chisel64
+mv chisel_1.9.1_windows_386 chisel32
+mv chisel_1.9.1_windows_amd64 chisel64
 wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 git clone https://github.com/int0x33/nc.exe.git
 git clone https://github.com/ParrotSec/mimikatz.git
@@ -99,7 +102,6 @@ fi
 # installs lxc privesc
 cd ~/tools
 if [[ "$response2" = "y" || "$response2" = "Y" ]]; then
-    sudo apt update
     sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools
     git clone https://github.com/lxc/distrobuilder
     cd distrobuilder
