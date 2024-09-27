@@ -21,7 +21,6 @@ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Clone GitHub repositories
 cd ~/tools
-git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 git clone https://github.com/fortra/impacket.git
 git clone https://github.com/BlackArch/webshells.git
 pip install bloodhound
