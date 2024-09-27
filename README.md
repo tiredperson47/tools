@@ -4,8 +4,9 @@
 - Gobuster
 - Impacket (Set up requirements yourself)
 - Kerbrute
-- CrackMapExec (I'm pretty sure this is already installed on Kali, but I added it anyways)
 - WebShells
+- Remmina
+- Google Chrome (to manually use chrome debugger)
 - Linux-Binary
   - Chisel (x32 and x64)
   - LinEnum
