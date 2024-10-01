@@ -12,6 +12,9 @@ sudo apt update
 # Install required packages and remmina (RDP but kinda better than freexrdp)
 sudo apt install -y ldap-utils gobuster remmina
 
+# install bopscrk (wordlist generator)
+pip install bopscrk
+
 # Install google chrome to be able to use chrome debugger. (rare to use but still cool to have)
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb

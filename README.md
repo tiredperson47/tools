@@ -7,6 +7,7 @@
 - WebShells
 - Remmina
 - Google Chrome (to manually use chrome debugger)
+- Bopscrk (wordlist generator)
 - Linux-Binary
   - Chisel (x32 and x64)
   - LinEnum
