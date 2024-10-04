@@ -7,7 +7,6 @@ username="$(whoami)"
 
 # Ask user if they want to install SecLists and/or lxd privesc
 read -p "Do you want to install SecLists? (y/n): " response1
-read -p "Do you want to set up lxc privesc? It will update your packages [sudo apt update]. (y/n): " response2
 sudo apt update
 # Install required packages and remmina (RDP but kinda better than freexrdp)
 sudo apt install -y ldap-utils gobuster remmina
@@ -24,7 +23,6 @@ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Clone GitHub repositories
 cd ~/tools
-git clone https://github.com/fortra/impacket.git
 git clone https://github.com/BlackArch/webshells.git
 pip install bloodhound
 git clone https://github.com/tiredperson47/malsploits.git
@@ -98,24 +96,6 @@ if [[ "$response1" = "y" || "$response1" = "Y" ]]; then
 else
     echo "No action taken. Exiting."
 fi
-
-# installs lxc privesc
-cd ~/tools
-if [[ "$response2" = "y" || "$response2" = "Y" ]]; then
-    sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools
-    git clone https://github.com/lxc/distrobuilder
-    cd distrobuilder
-    make
-    mkdir -p ~/tools/lxc-privesc
-    cd ~/tools/lxc-privesc
-    wget https://raw.githubusercontent.com/lxc/lxc-ci/master/images/alpine.yaml
-    sudo $HOME/go/bin/distrobuilder build-incus alpine.yaml --type=split -o image.release=3.18
-    mv ~/tools/lxc-steps.txt ~/tools/lxc-privesc
-    cd ~/tools
-else
-    echo "No action taken. Exiting."
-fi
-
 
 # Recursively change permissions to be correct
 sudo chown -R $username:$username ~/tools

@@ -2,7 +2,6 @@
 
 - SecLists
 - Gobuster
-- Impacket (Set up requirements yourself)
 - Kerbrute
 - WebShells
 - Remmina
