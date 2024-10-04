@@ -8,6 +8,7 @@
 - Remmina
 - Google Chrome (to manually use chrome debugger)
 - Bopscrk (wordlist generator)
+- Malsploits (a repo jsouliss and I created to script out exploits and malware)
 - Linux-Binary
   - Chisel (x32 and x64)
   - LinEnum

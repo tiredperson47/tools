@@ -27,9 +27,7 @@ cd ~/tools
 git clone https://github.com/fortra/impacket.git
 git clone https://github.com/BlackArch/webshells.git
 pip install bloodhound
-
-#compile ld-preload privesc
-gcc -fPIC -shared -nostartfiles -o ~/tools/ld_preload.so ~/tools/ld_preload.c
+git clone https://github.com/tiredperson47/malsploits.git
 
 # Download and setup kerbrute
 wget https://github.com/ropnop/kerbrute/releases/download/v1.0.3/kerbrute_linux_amd64 -O kerbrute
