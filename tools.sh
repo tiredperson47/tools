@@ -1,10 +1,66 @@
 #!/bin/bash
 
-# A script to quickly set up a Kali Linux machine, or any other Linux distribution that uses apt. 
+# A script to quickly set up a Kali Linux machine, or any other Linux distribution that uses apt.
 
 # Sets username variable to the user's username with whoami
 username="$(whoami)"
 
+# Parse command-line arguments
+repositories=""
+while getopts "r:" opt; do
+  case $opt in
+    r) repositories=$OPTARG ;;
+    *) echo "Usage: $0 [-r repository1,repository2,...]"; exit 1 ;;
+  esac
+done
+
+# Function to clone repositories
+clone_repository() {
+  case $1 in
+    malsploits)
+      git clone https://github.com/tiredperson47/malsploits.git ~/tools/malsploits
+      ;;
+    seclists)
+      cd ~/tools
+      wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
+      unzip master.zip
+      mv SecLists-master SecLists
+      ;;
+    msfpayload)
+      git clone https://github.com/tiredperson47/msfpayload.git ~/tools/msfpayload
+      ;;
+    *)
+      echo "Unknown repository: $1"
+      echo "Valid options are: malsploits, seclists, msfpayload"
+      return 1
+      ;;
+  esac
+  return 0
+}
+
+# If specific repositories are specified, only clone those
+if [ -n "$repositories" ]; then
+  IFS=',' read -ra repo_array <<< "$repositories"
+  mkdir -p ~/tools
+  all_valid=true
+  for repo in "${repo_array[@]}"; do
+    if ! clone_repository "$repo"; then
+      all_valid=false
+    fi
+  done
+
+  if $all_valid; then
+    echo ""
+    echo ""
+    echo '============== Selected repositories cloned successfully! Good luck and happy hacking! =============='
+  else
+    echo ""
+    echo "Some repositories were invalid. Please check the repository names and try again."
+  fi
+  exit 0
+fi
+
+# Continue with the full setup if no specific repositories were specified
 # Ask user if they want to install SecLists and/or lxd privesc
 read -p "Do you want to install SecLists? (y/n): " response1
 sudo apt update
@@ -17,7 +73,8 @@ pip install bopscrk
 # unzip rockyou.txt
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
-# Clone GitHub repositories
+# Clone all GitHub repositories if no -r option was used
+mkdir -p ~/tools
 cd ~/tools
 pip install bloodhound
 git clone https://github.com/tiredperson47/malsploits.git
@@ -92,19 +149,17 @@ sudo apt install -y bloodhound neo4j
 #my own repositoty
 git clone https://github.com/tiredperson47/msfpayload.git
 
-# installs seclists, unzips it, and changes directory name to SecLists.
-cd ~/tools
+# installs seclists if user wants
 if [[ "$response1" = "y" || "$response1" = "Y" ]]; then
     wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
     unzip master.zip
     mv SecLists-master SecLists
 else
-    echo "No action taken. Exiting."
+    echo "No action taken for SecLists."
 fi
 
 # Recursively change permissions to be correct
 sudo chown -R $username:$username ~/tools
-
 
 echo ""
 echo ""
