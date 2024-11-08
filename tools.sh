@@ -8,22 +8,17 @@ username="$(whoami)"
 # Ask user if they want to install SecLists and/or lxd privesc
 read -p "Do you want to install SecLists? (y/n): " response1
 sudo apt update
-# Install required packages and remmina (RDP but kinda better than freexrdp)
-sudo apt install -y ldap-utils gobuster remmina
+# Install required packages, gobuster, rlwrap, and remmina (RDP but kinda better than freexrdp)
+sudo apt install -y ldap-utils gobuster remmina rlwrap
 
 # install bopscrk (wordlist generator)
 pip install bopscrk
 
-# Install google chrome to be able to use chrome debugger. (rare to use but still cool to have)
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-
-# unzip rockyou.txt + export to $rock variable
+# unzip rockyou.txt
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Clone GitHub repositories
 cd ~/tools
-git clone https://github.com/BlackArch/webshells.git
 pip install bloodhound
 git clone https://github.com/tiredperson47/malsploits.git
 
@@ -60,6 +55,16 @@ wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Cert
 wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
 git clone https://github.com/Kevin-Robertson/Powermad.git
 wget https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
+cd ..
+
+# create webapp directory which stores all webapp related tools
+mkdir webapp
+cd webapp
+git clone https://github.com/BlackArch/webshells.git
+git clone https://github.com/ambionics/phpggc.git
+# Install google chrome to be able to use chrome debugger. (rare to use but still cool to have)
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 cd ..
 
 # Create zerologon directory and download files
