@@ -119,6 +119,7 @@ mkdir webapp
 cd webapp
 git clone https://github.com/BlackArch/webshells.git
 git clone https://github.com/ambionics/phpggc.git
+git clone https://github.com/synacktiv/php_filter_chain_generator.git
 # Install google chrome to be able to use chrome debugger. (rare to use but still cool to have)
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
