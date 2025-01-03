@@ -102,8 +102,8 @@ cd windows-binary
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_386.gz
 wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_windows_amd64.gz
 gunzip *.gz
-mv chisel_1.9.1_windows_386 chisel32
-mv chisel_1.9.1_windows_amd64 chisel64
+mv chisel_1.9.1_windows_386 chisel32.exe
+mv chisel_1.9.1_windows_amd64 chisel64.exe
 wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 git clone https://github.com/int0x33/nc.exe.git
 git clone https://github.com/ParrotSec/mimikatz.git
@@ -112,6 +112,7 @@ wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Cert
 wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
 git clone https://github.com/Kevin-Robertson/Powermad.git
 wget https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
+curl -o ~/.config/bloodhound/customqueries.json "https://raw.githubusercontent.com/CompassSecurity/BloodHoundQueries/master/BloodHound_Custom_Queries/customqueries.json"
 cd ..
 
 # create webapp directory which stores all webapp related tools
