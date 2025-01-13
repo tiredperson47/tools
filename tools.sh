@@ -106,7 +106,14 @@ mv chisel_1.9.1_windows_386 chisel32.exe
 mv chisel_1.9.1_windows_amd64 chisel64.exe
 wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 git clone https://github.com/int0x33/nc.exe.git
-git clone https://github.com/ParrotSec/mimikatz.git
+
+# add mimikatz (stable)
+mkdir mimikatz
+cd mimikatz
+wget https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip
+unzip mimikatz_trunk.zip
+cd ..
+
 wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Rubeus.exe
 wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Certify.exe
 wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
