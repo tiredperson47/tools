@@ -18,16 +18,16 @@ done
 clone_repository() {
   case $1 in
     malsploits)
-      git clone https://github.com/tiredperson47/malsploits.git ~/tools/malsploits
+      git clone https://github.com/tiredperson47/malsploits.git ./tools/malsploits
       ;;
     seclists)
-      cd ~/tools
+      cd ./tools
       wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
       unzip master.zip
       mv SecLists-master SecLists
       ;;
     msfpayload)
-      git clone https://github.com/tiredperson47/msfpayload.git ~/tools/msfpayload
+      git clone https://github.com/tiredperson47/msfpayload.git ./tools/msfpayload
       ;;
     *)
       echo "Unknown repository: $1"
@@ -41,7 +41,7 @@ clone_repository() {
 # If specific repositories are specified, only clone those
 if [ -n "$repositories" ]; then
   IFS=',' read -ra repo_array <<< "$repositories"
-  mkdir -p ~/tools
+  mkdir -p ./tools
   all_valid=true
   for repo in "${repo_array[@]}"; do
     if ! clone_repository "$repo"; then
@@ -74,8 +74,8 @@ pip install bopscrk
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Clone all GitHub repositories if no -r option was used
-mkdir -p ~/tools
-cd ~/tools
+mkdir -p ./tools
+cd ./tools
 pip install bloodhound
 git clone https://github.com/tiredperson47/malsploits.git
 
@@ -168,7 +168,7 @@ else
 fi
 
 # Recursively change permissions to be correct
-sudo chown -R $username:$username ~/tools
+sudo chown -R $username:$username ./tools
 
 echo ""
 echo ""
