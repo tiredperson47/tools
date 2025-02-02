@@ -65,7 +65,7 @@ fi
 read -p "Do you want to install SecLists? (y/n): " response1
 sudo apt update
 # Install required packages, gobuster, rlwrap, and remmina (RDP but kinda better than freexrdp)
-sudo apt install -y ldap-utils gobuster remmina rlwrap
+sudo apt install -y ldap-utils gobuster remmina rlwrap krb5-user libkrb5-dev
 
 # install bopscrk (wordlist generator)
 pip install bopscrk
