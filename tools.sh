@@ -18,16 +18,16 @@ done
 clone_repository() {
   case $1 in
     malsploits)
-      git clone https://github.com/tiredperson47/malsploits.git ./tools/malsploits
+      git clone https://github.com/tiredperson47/malsploits.git ~/tools/malsploits
       ;;
     seclists)
-      cd ./tools
+      cd ~/tools
       wget https://github.com/danielmiessler/SecLists/archive/refs/heads/master.zip
       unzip master.zip
       mv SecLists-master SecLists
       ;;
     msfpayload)
-      git clone https://github.com/tiredperson47/msfpayload.git ./tools/msfpayload
+      git clone https://github.com/tiredperson47/msfpayload.git ~/tools/msfpayload
       ;;
     *)
       echo "Unknown repository: $1"
@@ -41,7 +41,7 @@ clone_repository() {
 # If specific repositories are specified, only clone those
 if [ -n "$repositories" ]; then
   IFS=',' read -ra repo_array <<< "$repositories"
-  mkdir -p ./tools
+  mkdir -p ~/tools
   all_valid=true
   for repo in "${repo_array[@]}"; do
     if ! clone_repository "$repo"; then
@@ -74,8 +74,8 @@ pipx install bopscrk
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Clone all GitHub repositories if no -r option was used
-mkdir -p ./tools
-cd ./tools
+mkdir -p ~/tools
+cd ~/tools
 git clone https://github.com/tiredperson47/malsploits.git
 
 # Download and setup kerbrute
@@ -92,8 +92,9 @@ mv chisel_1.9.1_linux_386 chisel32
 mv chisel_1.9.1_linux_amd64 chisel64
 wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.7.5/ligolo-ng_agent_0.7.5_linux_amd64.tar.gz
 wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.7.5/ligolo-ng_proxy_0.7.5_linux_amd64.tar.gz
-tar -xzvf *.tar.gz
-rm -f README.md
+tar -xzvf ligolo-ng_agent_0.7.5_linux_amd64.tar.gz
+tar -xzvf ligolo-ng_proxy_0.7.5_linux_amd64.tar.gz
+rm -f README.md ligolo-ng_proxy_0.7.5_linux_amd64.tar.gz ligolo-ng_agent_0.7.5_linux_amd64.tar.gz LICENSE
 git clone https://github.com/rebootuser/LinEnum.git
 wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
@@ -126,7 +127,7 @@ wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Cert
 wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
 git clone https://github.com/Kevin-Robertson/Powermad.git
 wget https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
-curl -o ~/.config/bloodhound/customqueries.json "https://raw.githubusercontent.com/CompassSecurity/BloodHoundQueries/master/BloodHound_Custom_Queries/customqueries.json"
+curl -o ~/tools/.config/bloodhound/customqueries.json "https://raw.githubusercontent.com/CompassSecurity/BloodHoundQueries/master/BloodHound_Custom_Queries/customqueries.json"
 cd ..
 
 # create webapp directory which stores all webapp related tools
@@ -159,7 +160,7 @@ unzip Linux.x64.Release.zip
 unzip ILSpy-linux-x64-Release.zip
 cd ..
 
-# Install bloodhound and neo4j
+# Install bloodhound, neo4j, sliver
 sudo apt install -y bloodhound neo4j sliver
 
 #my own repositoty
@@ -175,7 +176,7 @@ else
 fi
 
 # Recursively change permissions to be correct
-sudo chown -R $username:$username ./tools
+sudo chown -R $username:$username ~/tools
 
 echo ""
 echo ""
