@@ -68,7 +68,7 @@ sudo apt update
 sudo apt install -y ldap-utils gobuster remmina rlwrap krb5-user libkrb5-dev
 
 # install bopscrk (wordlist generator)
-pip install bopscrk
+pipx install bopscrk
 
 # unzip rockyou.txt
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
@@ -76,7 +76,6 @@ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 # Clone all GitHub repositories if no -r option was used
 mkdir -p ./tools
 cd ./tools
-pip install bloodhound
 git clone https://github.com/tiredperson47/malsploits.git
 
 # Download and setup kerbrute
@@ -91,6 +90,10 @@ wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_li
 gunzip *.gz
 mv chisel_1.9.1_linux_386 chisel32
 mv chisel_1.9.1_linux_amd64 chisel64
+wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.7.5/ligolo-ng_agent_0.7.5_linux_amd64.tar.gz
+wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.7.5/ligolo-ng_proxy_0.7.5_linux_amd64.tar.gz
+tar -xzvf *.tar.gz
+rm -f README.md
 git clone https://github.com/rebootuser/LinEnum.git
 wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
@@ -104,6 +107,10 @@ wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_wi
 gunzip *.gz
 mv chisel_1.9.1_windows_386 chisel32.exe
 mv chisel_1.9.1_windows_amd64 chisel64.exe
+wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.7.5/ligolo-ng_agent_0.7.5_windows_amd64.zip
+wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.7.5/ligolo-ng_proxy_0.7.5_windows_amd64.zip
+unzip *.zip
+rm -f README.md
 wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 git clone https://github.com/int0x33/nc.exe.git
 
@@ -153,7 +160,7 @@ unzip ILSpy-linux-x64-Release.zip
 cd ..
 
 # Install bloodhound and neo4j
-sudo apt install -y bloodhound neo4j
+sudo apt install -y bloodhound neo4j sliver
 
 #my own repositoty
 git clone https://github.com/tiredperson47/msfpayload.git
