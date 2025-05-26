@@ -114,6 +114,7 @@ unzip *.zip
 rm -f README.md
 wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 git clone https://github.com/int0x33/nc.exe.git
+git clone https://github.com/r3motecontrol/Ghostpack-CompiledBinaries.git
 
 # add mimikatz (stable)
 mkdir mimikatz
@@ -122,12 +123,15 @@ wget https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mim
 unzip mimikatz_trunk.zip
 cd ..
 
-wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Rubeus.exe
-wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Certify.exe
-wget https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
 git clone https://github.com/Kevin-Robertson/Powermad.git
 wget https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
-curl -o ~/.config/bloodhound/customqueries.json "https://raw.githubusercontent.com/CompassSecurity/BloodHoundQueries/master/BloodHound_Custom_Queries/customqueries.json"
+
+wget https://github.com/SpecterOps/SharpHound/releases/download/v2.6.6/SharpHound_v2.6.6+debug_windows_x86.zip
+unzip SharpHound_v2.6.6+debug_windows_x86.zip
+rm SharpHound_v2.6.6+debug_windows_x86.zip
+sudo apt -y install powershell
+git clone https://github.com/SadProcessor/BloodHoundOperator.git
+git clone https://github.com/CompassSecurity/bloodhoundce-resources.git
 cd ..
 
 # create webapp directory which stores all webapp related tools
