@@ -115,6 +115,7 @@ rm -f README.md
 wget https://github.com/peass-ng/PEASS-ng/releases/download/20240519-fab0d0d5/winPEASx64.exe
 git clone https://github.com/int0x33/nc.exe.git
 git clone https://github.com/r3motecontrol/Ghostpack-CompiledBinaries.git
+wget https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip
 
 # add mimikatz (stable)
 mkdir mimikatz
